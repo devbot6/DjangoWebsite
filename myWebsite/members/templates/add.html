@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Add New Member
+{% endblock%}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Add New Food</h1>
+        <form action="/members/add/" method="post">
+            {% csrf_token %}
+
+            <div class="mb-3 mt-3">
+                <label for="firstName" class="form-label">Food Name:</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter firstName" name="firstName">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="lastName" class="form-label">Company:</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter lastName" name="lastName">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="phone" class="form-label">Price:</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="joinedDate" class="form-label">Expiration Date:</label>
+                <input type="date" class="form-control" id="joinedDate" placeholder="Enter joinedDate" name="joinedDate">
+            </div>
+
+            <button type="submit" class="btn-btn-primary">Submit</button>
+
+
+        </form>
+     
+    </div>
+
+{% endblock %}

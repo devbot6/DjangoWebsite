@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit {{ member.firstName }} {{ member.lastName }}
+{% endblock%}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Add Member</h1>
+        <form action="/members/edit/{{ member.id }}" method="post">
+            {% csrf_token %}
+
+            <div class="mb-3 mt-3">
+                <label for="firstName" class="form-label">Food Name: </label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter firstName" name="firstName" value="{{ member.firstName }}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="lastName" class="form-label">Company</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter lastName" name="lastName" value="{{ member.lastName }}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="phone" class="form-label">Price:</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone" value="{{ member.phone }}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="joinedDate" class="form-label">Expiration Date: </label>
+                <input type="date" class="form-control" id="joinedDate" placeholder="Enter joinedDate" name="joinedDate" value="{{ member.joinedDate|date:'Y-m-d'}}">
+            </div>
+
+            <button type="submit" class="btn-btn-primary">Submit</button>
+
+
+        </form>
+     
+    </div>
+
+{% endblock %}

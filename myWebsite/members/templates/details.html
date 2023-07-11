@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Details about {{ member.firstName }} {{ member.lastName }}
+{% endblock%}
+
+{% block content %}
+
+    <div class="container">
+        <h1> {{ member.firstName }} {{ member.lastName }} </h1>
+        <p>Price {{ member.phone}}</p>
+        <p>Expiration Date: {{ member.joinedDate}}</p>
+
+    </div>
+
+{% endblock %}

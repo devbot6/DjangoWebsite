@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Food List</h1>
+
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Food Name</th>
+                    <th>Company</th>
+                    <th>Price</th>
+                    <th>Expiration Date</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in myMembers %}
+                <tr>
+                    <td>{{ m.firstName }}</td>
+                    <td>{{ m.lastName }}</td>
+                    <td>{{ m.phone }}</td>
+                    <td>{{m.joinedDate}}</td>
+                    <td>
+                        <a href="/members/details/{{m.id}}">Details</a>
+                        <a href="/members/edit/{{m.id}}">Edit</a>
+                        <a href="{% url 'deletevet' m.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {%endfor%}
+                        
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
